@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Building2 } from "lucide-react"
+import { GoogleAuthButton } from "@/components/google-button"
 
 export default function LoginPage() {
   const router = useRouter()
@@ -22,6 +23,11 @@ export default function LoginPage() {
     e.preventDefault()
     // TODO: Implement actual authentication
     router.push("/dashboard")
+  }
+
+  const handleRegister = (e: React.FormEvent) => {
+    e.preventDefault()
+    router.push("/register")
   }
 
   return (
@@ -35,10 +41,10 @@ export default function LoginPage() {
         <div className="relative z-20 mt-auto">
           <blockquote className="space-y-2">
             <p className="text-lg">
-              This ERP system has revolutionized how we manage our business operations, 
+              This ERP system has revolutionized how we manage our business operations,
               providing unprecedented clarity and efficiency across all departments.
             </p>
-            <footer className="text-sm">Sofia Davis, CEO</footer>
+            <footer className="text-sm">Abdullah Tahir, CEO</footer>
           </blockquote>
         </div>
       </div>
@@ -71,10 +77,19 @@ export default function LoginPage() {
                   />
                 </div>
               </CardContent>
-              <CardFooter>
+              <CardFooter className="flex-col">
                 <Button className="w-full">Sign in</Button>
+                <div
+                  className="text-xs grid gap-1 underline mt-2 cursor-pointer"
+                  onClick={handleRegister}
+                >
+                  {"Don't have an account?"}
+                </div>
               </CardFooter>
             </form>
+            <div className="px-[6%] pb-[6%]">
+              <GoogleAuthButton mode="login" />
+            </div>
           </Card>
         </div>
       </div>

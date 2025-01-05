@@ -24,7 +24,7 @@ export default function Home() {
                 This ERP system has revolutionized how we manage our business operations, 
                 providing unprecedented clarity and efficiency across all departments.
               </p>
-              <footer className="text-sm">Sofia Davis, CEO</footer>
+              <footer className="text-sm">Abdullah Tahir, CEO</footer>
             </blockquote>
           </div>
         </div>

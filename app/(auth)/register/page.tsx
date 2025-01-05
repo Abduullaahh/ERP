@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { AuthLayout } from "@/components/auth/auth-layout"
+import { GoogleAuthButton } from "@/components/google-button"
 
 export default function RegisterPage() {
   const router = useRouter()
@@ -21,6 +22,11 @@ export default function RegisterPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     // TODO: Implement actual registration
+    router.push("/login")
+  }
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault()
     router.push("/login")
   }
 
@@ -70,10 +76,19 @@ export default function RegisterPage() {
               />
             </div>
           </CardContent>
-          <CardFooter>
+          <CardFooter className="flex-col">
             <Button className="w-full">Register</Button>
+            <div
+              className="text-xs grid gap-1 underline mt-2 cursor-pointer"
+              onClick={handleLogin}
+            >
+              {"Already have an account?"}
+            </div>
           </CardFooter>
         </form>
+                    <div className="px-[6%] pb-[6%]">
+                      <GoogleAuthButton mode="register" />
+                    </div>
       </Card>
     </AuthLayout>
   )
